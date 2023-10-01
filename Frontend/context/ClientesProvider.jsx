@@ -55,6 +55,7 @@ const ClientesProvider = ({ children }) => {
             })
     
             router.push('/');
+            setFiltroActivado(false);
         } catch (error) {
             console.log(error)
         }
