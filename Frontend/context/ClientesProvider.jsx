@@ -67,6 +67,8 @@ const ClientesProvider = ({ children }) => {
             await fetch(`${process.env.NEXT_PUBLIC_BACKEND}/clientes/${id}`, { method: 'DELETE' });
 
             router.push('/');
+            
+            setFiltroActivado(false);
         } catch (error) {
             console.log(error);
         }
