@@ -71,6 +71,10 @@ const ClientesProvider = ({ children }) => {
             await fetch(`${process.env.NEXT_PUBLIC_BACKEND}/clientes/${id}`, { method: 'DELETE' });
 
             router.push('/');
+            
+            setFiltroActivado(false);
+
+            document.querySelector('#filtro').value = '';
         } catch (error) {
             console.log(error);
         }
