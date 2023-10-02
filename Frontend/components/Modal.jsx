@@ -7,18 +7,17 @@ const Modal = ({ clienteModal }) => {
     const router = useRouter();
 
     const { cerrarModal, eliminarCliente } = useClientes();
- 
+
     return (
         <div className="z-30 fixed top-16 md:top-0 left-0 md:left-1/4 h-screen w-full md:w-3/4 px-6 xl:hidden">
             <div className="bg-black opacity-40 absolute h-screen w-screen top-0 left-0" onClick={() => cerrarModal()}></div>
 
             <div className="bg-white relative z-40 mt-16 p-4 rounded-lg flex flex-col justify-center items-start">
-                <span
-                    className="material-symbols-outlined font-bold text-red-700 hover:text-red-500 cursor-pointer inline relative mb-2 text-3xl self-end"
+                <i
+                    className="fas fa-times font-bold text-red-700 hover:text-red-500 cursor-pointer inline relative mb-2 text-3xl self-end"
                     onClick={() => cerrarModal()}
                 >
-                    close
-                </span>
+                </i>
 
                 <p className="font-bold mb-2">Cliente: <span className="font-normal sm:text-lg lg:text-xl ml-2">{clienteModal.nombre}</span> </p>
                 <p className="font-bold mb-2">Teléfono: <span className="font-normal sm:text-lg lg:text-xl ml-2">{clienteModal.telefono}</span> </p>

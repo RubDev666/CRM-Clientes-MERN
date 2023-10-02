@@ -55,7 +55,10 @@ const ClientesProvider = ({ children }) => {
             })
     
             router.push('/');
+
             setFiltroActivado(false);
+
+            document.querySelector('#filtro').value = '';
         } catch (error) {
             console.log(error)
         }

@@ -52,11 +52,7 @@ export default function Home({ resultado }) {
                         }}
                     >
                         <label htmlFor="filtro" className="flex mr-2 xl:mr-4">
-                            <span
-                                className="material-symbols-outlined text-white cursor-pointer font-bold xl:text-3xl"
-                            >
-                                search
-                            </span>
+                            <i className="fa-solid fa-magnifying-glass text-white cursor-pointer font-bold text-xl md:text-2xl xl:text-3xl"></i>
                         </label>
 
                         <input 

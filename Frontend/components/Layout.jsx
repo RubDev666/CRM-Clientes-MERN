@@ -33,21 +33,19 @@ function Layout({ children }) {
                 <h2 className='text-lg md:text-2xl xl:text-4xl font-black text-center text-white'>CRM - Clientes</h2>
 
                 {!openMenu && (
-                    <span
-                        className="material-symbols-outlined text-white hover:text-blue-300 cursor-pointer max-[479px]:block hidden"
+                    <i 
+                        className="fas fa-bars text-white text-xl hover:text-blue-300 cursor-pointer max-[479px]:block hidden"
                         onClick={handleNav}
                     >
-                        menu
-                    </span>
+                    </i>
                 )}
 
                 {openMenu && (
-                    <span
-                        className="material-symbols-outlined text-white hover:text-blue-300 cursor-pointer max-[479px]:block hidden"
+                    <i 
+                        className="fas fa-times text-white text-xl hover:text-blue-300 cursor-pointer max-[479px]:block hidden" 
                         onClick={handleNav}
                     >
-                        close
-                    </span>
+                    </i>
                 )}
 
                 {/*NAV MENU - MOBILE*/}
