@@ -15,7 +15,7 @@ const Modal = ({ clienteModal }) => {
     const { cerrarModal, eliminarCliente } = useClientes();
 
     return (
-        <div className="z-30 fixed top-16 md:top-0 left-0 md:left-1/4 h-screen w-full md:w-3/4 px-6 xl:hidden">
+        <div className="z-50 z- fixed top-16 md:top-0 left-0 md:left-1/4 h-screen w-full md:w-3/4 px-6 xl:hidden">
             <div className="bg-black opacity-40 absolute h-screen w-screen top-0 left-0" onClick={() => cerrarModal()}></div>
 
             <div className="bg-white relative z-40 mt-16 p-4 rounded-lg flex flex-col justify-center items-start">
