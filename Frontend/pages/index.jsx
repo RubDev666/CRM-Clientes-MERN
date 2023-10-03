@@ -8,6 +8,12 @@ import Cliente from "@/components/Cliente";
 import Modal from "@/components/Modal";
 import { useRouter } from "next/router";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import {
+    faSearch
+} from "@fortawesome/free-solid-svg-icons";
+
 export async function getServerSideProps() {
     try {
         const respuesta = await fetch(process.env.NEXT_PUBLIC_BACKEND + '/clientes');
@@ -43,7 +49,7 @@ export default function Home({ resultado }) {
                 <p className="mt-3 text-center font-bold xl:text-xl">Administra tus Clientes</p>
 
                 {clientes.length > 0 && (
-                    <form 
+                    <form
                         className="bg-blue-900 w-full flex items-center justify-center px-2 py-3 md:py-5 xl:py-6  mt-4 sticky top-16 md:top-0"
                         onSubmit={(e) => {
                             e.preventDefault();
@@ -52,13 +58,25 @@ export default function Home({ resultado }) {
                         }}
                     >
                         <label htmlFor="filtro" className="flex mr-2 xl:mr-4">
-                            <i className="fa-solid fa-magnifying-glass text-white cursor-pointer font-bold text-xl md:text-2xl xl:text-3xl"></i>
+                            <div className="xl:hidden cursor-pointer">
+                                <FontAwesomeIcon
+                                    icon={faSearch}
+                                    style={{ fontSize: 20, color: "#fff"}}
+                                />
+                            </div>
+
+                            <div className="hidden xl:block cursor-pointer">
+                                <FontAwesomeIcon
+                                    icon={faSearch}
+                                    style={{ fontSize: 25, color: "#fff" }}
+                                />
+                            </div>
                         </label>
 
-                        <input 
-                            type="text" 
-                            id="filtro" 
-                            className="w-3/4 xl:w-1/2 py-1 px-3 xl:py-2 xl:text-lg xl:px-4" 
+                        <input
+                            type="text"
+                            id="filtro"
+                            className="w-3/4 xl:w-1/2 py-1 px-3 xl:py-2 xl:text-lg xl:px-4"
                             placeholder="Buscar por nombre de cliente"
                             onChange={(e) => filtrador(e.target.value)}
                         />

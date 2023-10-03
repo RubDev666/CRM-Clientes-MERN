@@ -3,6 +3,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+    faBars, faTimes
+} from "@fortawesome/free-solid-svg-icons";
+
 function Layout({ children }) {
     const [openMenu, setOpenMenu] = useState(false);
 
@@ -33,19 +38,25 @@ function Layout({ children }) {
                 <h2 className='text-lg md:text-2xl xl:text-4xl font-black text-center text-white'>CRM - Clientes</h2>
 
                 {!openMenu && (
-                    <i 
-                        className="fas fa-bars text-white text-xl hover:text-blue-300 cursor-pointer max-[479px]:block hidden"
-                        onClick={handleNav}
-                    >
-                    </i>
+                    <div className="max-[479px]:block hidden cursor-pointer">
+                        <FontAwesomeIcon
+                            icon={faBars}
+                            style={{fontSize: 23}}
+                            className="text-white hover:text-blue-300"
+                            onClick={handleNav}
+                        />
+                    </div>
                 )}
 
                 {openMenu && (
-                    <i 
-                        className="fas fa-times text-white text-xl hover:text-blue-300 cursor-pointer max-[479px]:block hidden" 
-                        onClick={handleNav}
-                    >
-                    </i>
+                    <div className="max-[479px]:block hidden cursor-pointer">
+                        <FontAwesomeIcon
+                            icon={faTimes}
+                            style={{ fontSize: 25}}
+                            className="text-white hover:text-blue-300"
+                            onClick={handleNav}
+                        />
+                    </div>
                 )}
 
                 {/*NAV MENU - MOBILE*/}

@@ -1,12 +1,16 @@
 import '@/styles/globals.css';
-import Script from 'next/script';
+
 import { ClientesProvider } from '@/context/ClientesProvider';
+
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import { config } from "@fortawesome/fontawesome-svg-core"; 
+
+config.autoAddCss = false; 
 
 export default function App({ Component, pageProps }) {
     return (
         <ClientesProvider>
             <Component {...pageProps} />
-            <Script src='https://kit.fontawesome.com/c4254e24a8.js' strategy="beforeInteractive"/>
         </ClientesProvider>
     )
 }
