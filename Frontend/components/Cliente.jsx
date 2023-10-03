@@ -21,7 +21,7 @@ const Cliente = ({ cliente }) => {
                 <p className="text-gray-600"> <span className="text-gray-800 uppercase font-bold">Tel: </span>{telefono} </p>
             </td>
 
-            <td className='hidden sm:table-cell'>
+            <td className='hidden sm:table-cell w-1/3'>
                 {notas}
             </td>
 

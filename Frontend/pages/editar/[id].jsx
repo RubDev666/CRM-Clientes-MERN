@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
-import { useParams } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 
 import useClientes from '@/hooks/useClientes';
 
 import Layout from '@/components/Layout';
 import Formulario from '@/components/Formulario';
+import Aviso from '@/components/Aviso';
 
 export async function getServerSideProps({ params }) {
     const { id } = params;
@@ -41,7 +41,7 @@ export async function getServerSideProps({ params }) {
 const Page = ({ cliente }) => {
     const router = useRouter();
 
-    const { cerrarModal, setFiltroActivado } = useClientes();
+    const { cerrarModal, setFiltroActivado, aviso} = useClientes();
 
     //cierra el modal al cambiar de sitio, ya que si regresamos al inicio el modal seguira abierto y no es una buena experiencia de usuario
     useEffect(() => {
@@ -64,6 +64,8 @@ const Page = ({ cliente }) => {
                     <>
                         <h1 className="text-center font-black text-3xl xl:text-4xl text-blue-900">Editar Cliente</h1>
                         <p className="mt-3 text-center font-bold xl:text-xl">Llena todos los campos para editar cliente</p>
+
+                        {aviso && <Aviso />}
 
                         <div className="flex justify-center mt-5">
                             <button

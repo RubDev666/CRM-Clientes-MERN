@@ -7,9 +7,10 @@ import useClientes from '@/hooks/useClientes';
 
 import Layout from "@/components/Layout";
 import Formulario from '@/components/Formulario';
+import Aviso from '@/components/Aviso';
 
 const Nuevo = () => {
-    const { cerrarModal, setFiltroActivado } = useClientes();
+    const { cerrarModal, setFiltroActivado, aviso } = useClientes();
 
     const router = useRouter();
 
@@ -33,6 +34,8 @@ const Nuevo = () => {
                 <h1 className="text-center font-black text-3xl xl:text-4xl text-blue-900">Nuevo Cliente</h1>
                 <p className="mt-3 text-center font-bold xl:text-xl">Llena todos los campos para registrar un nuevo cliente</p>
 
+                {aviso && <Aviso />}
+                
                 <div className="flex justify-center mt-5">
                     <button
                         className="bg-blue-800 hover:bg-blue-600 text-white px-4 py-2 font-bold"

@@ -9,6 +9,7 @@ const ClientesProvider = ({ children }) => {
     const [modal, setModal] = useState(false);
     const [filtro, setFiltro] = useState([]);
     const [filtroActivado, setFiltroActivado] = useState(false);
+    const [aviso, setAviso] = useState(true);
 
     const router = useRouter();
 
@@ -124,6 +125,8 @@ const ClientesProvider = ({ children }) => {
                 filtro,
                 filtroActivado,
                 setFiltroActivado,
+                aviso,
+                setAviso
             }}
         >
             {children}

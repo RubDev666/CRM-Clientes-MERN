@@ -69,7 +69,7 @@ const Formulario = ({ cliente }) => {
                 <label
                     className="text-gray-800 font-bold"
                     htmlFor="notas"
-                >Notas:</label>
+                >Notas <span className='text-sm font-semibold'>(Max. 200 Carácteres)</span>:</label>
                 <textarea
                     as="textarea"
                     id="notas"
@@ -79,6 +79,7 @@ const Formulario = ({ cliente }) => {
                     name="notas"
                     defaultValue={cliente?.notas}
                     required
+                    maxLength={"200"}
                 />
             </div>
 

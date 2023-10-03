@@ -3,6 +3,12 @@ import { useRouter } from 'next/router';
 
 import useClientes from "@/hooks/useClientes";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+    faTimes
+} from "@fortawesome/free-solid-svg-icons";
+
+
 const Modal = ({ clienteModal }) => {
     const router = useRouter();
 
@@ -18,6 +24,13 @@ const Modal = ({ clienteModal }) => {
                     onClick={() => cerrarModal()}
                 >
                 </i>
+
+                <FontAwesomeIcon
+                    icon={faTimes}
+                    style={{ fontSize: 28 }}
+                    className="fas fa-times font-bold text-red-700 hover:text-red-500 cursor-pointer inline relative mb-2 text-3xl self-end"
+                    onClick={() => cerrarModal()}
+                />
 
                 <p className="font-bold mb-2">Cliente: <span className="font-normal sm:text-lg lg:text-xl ml-2">{clienteModal.nombre}</span> </p>
                 <p className="font-bold mb-2">Teléfono: <span className="font-normal sm:text-lg lg:text-xl ml-2">{clienteModal.telefono}</span> </p>

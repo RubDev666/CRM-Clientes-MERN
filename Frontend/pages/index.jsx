@@ -1,18 +1,17 @@
 import React, { useEffect, useReducer, useState } from "react";
 import Head from "next/head";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+    faSearch
+} from "@fortawesome/free-solid-svg-icons";
+
 import useClientes from "@/hooks/useClientes";
 
 import Layout from "@/components/Layout";
 import Cliente from "@/components/Cliente";
 import Modal from "@/components/Modal";
-import { useRouter } from "next/router";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-import {
-    faSearch
-} from "@fortawesome/free-solid-svg-icons";
+import Aviso from "@/components/Aviso";
 
 export async function getServerSideProps() {
     try {
@@ -29,7 +28,7 @@ export async function getServerSideProps() {
 }
 
 export default function Home({ resultado }) {
-    const { clientes, clienteModal, modal, setClientes, filtroActivado, filtro, setFiltroActivado, filtrador } = useClientes();
+    const { clientes, clienteModal, modal, setClientes, filtroActivado, filtro, setFiltroActivado, filtrador, aviso} = useClientes();
 
     useEffect(() => {
         setClientes(resultado);
@@ -50,7 +49,7 @@ export default function Home({ resultado }) {
 
                 {clientes.length > 0 && (
                     <form
-                        className="bg-blue-900 w-full flex items-center justify-center px-2 py-3 md:py-5 xl:py-6  mt-4 sticky top-16 md:top-0"
+                        className="bg-blue-900 w-full flex items-center justify-center px-2 py-3 md:py-5 xl:py-6  mt-4 sticky top-16 md:top-0 z-50"
                         onSubmit={(e) => {
                             e.preventDefault();
 
@@ -84,6 +83,8 @@ export default function Home({ resultado }) {
                 )}
 
                 {modal && <Modal clienteModal={clienteModal} />}
+
+                {aviso && <Aviso />}
 
                 {clientes.length ? (
                     <table className={`w-full bg-white shadow mt-5 table-auto ${filtroActivado && 'hidden'}`}>
